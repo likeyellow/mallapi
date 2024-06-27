@@ -8,6 +8,6 @@
 + #### (수정) 2024.06.27.목 : 로그인 실패 시 에러 메시지 분기처리
 + #### (수정) 2024.06.27.목 : 로그인 실패 시 에러 메시지를 팝업에서 input 하단으로 변경-(1),(2)
 
-
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/c1dc6842-e980-425a-a642-becdec41bdde" width="32%" float="right">
 
 
