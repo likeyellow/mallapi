@@ -7,5 +7,6 @@ PW: 1111
 
 ### (수정) 2024.06.27.목 : 로그인 실패시 에러 메시지 분기처리
 ![2024-06-27 12 27 50](https://github.com/likeyellow/mallapi/assets/38120188/f156399a-a13d-4c53-9ca3-13b15c21b23c)
+![2024-06-27 12 32 55](https://github.com/likeyellow/mallapi/assets/38120188/e24c1e47-5b52-4fea-be52-ab5ea8b5de98)
 
 
