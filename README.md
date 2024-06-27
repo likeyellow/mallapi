@@ -9,8 +9,8 @@
 + #### (수정) 2024.06.27.목 : 로그인 실패 시 에러 메시지를 팝업에서 input 하단으로 변경-(1),(2)
 
 <div>
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/f156399a-a13d-4c53-9ca3-13b15c21b23c" width="30%" float="left">
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/e24c1e47-5b52-4fea-be52-ab5ea8b5de98" width="30%" float="center">
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/c1dc6842-e980-425a-a642-becdec41bdde" width="30%" float="right">
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/f156399a-a13d-4c53-9ca3-13b15c21b23c" width="30%" align="left">
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/e24c1e47-5b52-4fea-be52-ab5ea8b5de98" width="30%" align="center">
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/c1dc6842-e980-425a-a642-becdec41bdde" width="30%" align="right">
 </div>
 
