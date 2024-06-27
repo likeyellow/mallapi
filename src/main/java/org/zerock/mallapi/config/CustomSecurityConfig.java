@@ -56,8 +56,6 @@ public class CustomSecurityConfig {
         http.exceptionHandling(config -> {
             config.accessDeniedHandler(new CustomAccessDeniedHandler());
         });
-
-        // http.addFilterBefore(new JWTCheckFilter(), UsernamePasswordAuthenticationFilter.class); // JWT체크
         
         return http.build();
     }
