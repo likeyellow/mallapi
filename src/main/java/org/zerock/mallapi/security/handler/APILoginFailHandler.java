@@ -62,9 +62,10 @@ public class APILoginFailHandler implements AuthenticationFailureHandler {
         
         if(exception instanceof AuthenticationCredentialsNotFoundException) {
             errorMessage = "인증 요청이 거부되었습니다. 관리자에게 문의하세요.";
-        } else {
-            errorMessage = "알 수 없는 이유로 로그인에 실패하였습니다. 관리자에게 문의하세요.";
-        }
+        }    
+        // } else {
+        //     errorMessage = "알 수 없는 이유로 로그인에 실패하였습니다. 관리자에게 문의하세요.";
+        // }
 
         Gson gson = new Gson();
 
