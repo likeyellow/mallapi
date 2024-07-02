@@ -12,13 +12,15 @@
 <div>
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/e24c1e47-5b52-4fea-be52-ab5ea8b5de98" width="48%" align="left">
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/c1dc6842-e980-425a-a642-becdec41bdde" width="48%" align="right">
-</div><br>
+</div>
+
 <div>
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/9b5cfc6a-5c22-43df-932b-c1ebbbadf65e" width="48%" align="left">
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/68022193-9bb0-40b5-bcc4-048480672089" width="48%" align="right">
-</div><br>
+</div>
+
 <div>
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/7b170a16-11cf-450e-871f-3b187e08fadc" width="48%" align="left">
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/a1bd88a0-16b2-4444-8a5f-cce2ea685bf8" width="48%" align="right">
-</div><br>
+</div>
 
