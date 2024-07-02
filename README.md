@@ -10,17 +10,14 @@
 + #### (수정) 2024.06.28.금 : 가독성과 코드 효율을 위해 로그인 에러 메시지 분기처리 if~else -> if 변경
 + #### (수정) 2024.07.02.화 : 에러 코드와 메시지를 중앙집중식으로 관리하기 위해 enum ErrorCode 를 생성하여 변경함
 
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/e24c1e47-5b52-4fea-be52-ab5ea8b5de98" width="45%" height="30%" align="left">
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/c1dc6842-e980-425a-a642-becdec41bdde" width="45%" height="30%" align="right">
 
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/e24c1e47-5b52-4fea-be52-ab5ea8b5de98" width="40%" height="40%" align="left">
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/c1dc6842-e980-425a-a642-becdec41bdde" width="40%" height="40%" align="right">
 
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/9b5cfc6a-5c22-43df-932b-c1ebbbadf65e" width="40%" height="40%" align="left">
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/68022193-9bb0-40b5-bcc4-048480672089" width="40%" height="40%" align="right">
 
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/9b5cfc6a-5c22-43df-932b-c1ebbbadf65e" width="45%" height="30%" align="left">
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/68022193-9bb0-40b5-bcc4-048480672089" width="45%" height="30%" align="right">
-
-
-
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/7b170a16-11cf-450e-871f-3b187e08fadc" width="45%" height="30%" align="left">
-<img src="https://github.com/likeyellow/mallapi/assets/38120188/a1bd88a0-16b2-4444-8a5f-cce2ea685bf8" width="45%" height="30%" align="right">
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/7b170a16-11cf-450e-871f-3b187e08fadc" width="40%" height="40%" align="left">
+<img src="https://github.com/likeyellow/mallapi/assets/38120188/a1bd88a0-16b2-4444-8a5f-cce2ea685bf8" width="40%" height="40%" align="right">
 
 
