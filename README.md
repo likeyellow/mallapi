@@ -8,7 +8,7 @@
 + #### (수정) 2024.06.27.목 : 로그인 실패 시 에러 메시지 분기처리
 + #### (수정) 2024.06.27.목 : 로그인 실패 시 에러 메시지를 팝업에서 input 하단으로 변경-(1),(2)
 + #### (수정) 2024.06.28.금 : 가독성과 코드 효율을 위해 로그인 에러 메시지 분기처리 if~else -> if 변경
-
++ #### (수정) 2024.07.02.화 : 에러 코드와 메시지를 중앙집중식으로 관리하기 위해 enum ErrorCode 를 생성하여 변경함
 <div>
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/e24c1e47-5b52-4fea-be52-ab5ea8b5de98" width="48%" align="left">
 <img src="https://github.com/likeyellow/mallapi/assets/38120188/c1dc6842-e980-425a-a642-becdec41bdde" width="48%" align="right">
