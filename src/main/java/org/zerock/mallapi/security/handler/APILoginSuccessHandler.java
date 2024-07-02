@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.zerock.mallapi.dto.MemberDTO;
@@ -24,7 +25,7 @@ public class APILoginSuccessHandler implements AuthenticationSuccessHandler {
             Authentication authentication) throws IOException, ServletException {
         
         log.info("------------------------------");
-        log.info(authentication);
+        log.info("Authentication Error: {}", authentication);
         log.info("----------------------------------");
 
         MemberDTO memberDTO = (MemberDTO)authentication.getPrincipal();
@@ -40,7 +41,8 @@ public class APILoginSuccessHandler implements AuthenticationSuccessHandler {
 
         String jsonStr = gson.toJson(claims);
 
-        response.setContentType("application/json; charset=UTF-8");
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding("UTF-8");
 
         PrintWriter printWriter = response.getWriter();
         printWriter.println(jsonStr);

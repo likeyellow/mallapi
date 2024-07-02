@@ -19,6 +19,7 @@ import org.zerock.mallapi.security.filter.JWTCheckFilter;
 import org.zerock.mallapi.security.handler.APILoginFailHandler;
 import org.zerock.mallapi.security.handler.APILoginSuccessHandler;
 import org.zerock.mallapi.security.handler.CustomAccessDeniedHandler;
+import org.zerock.mallapi.security.handler.CustomAuthenticationEntryPoint;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -44,19 +45,22 @@ public class CustomSecurityConfig {
 
         http.csrf(config -> config.disable());
 
+        http.addFilterBefore(new JWTCheckFilter(),
+        UsernamePasswordAuthenticationFilter.class); // JWT체크
+
+        // 인증되지 않은 사용자가 리소스에 접근했을 때 수행되는 핸들러를 등록
+        http.exceptionHandling(exceptionHandling -> {
+            exceptionHandling.authenticationEntryPoint(new CustomAuthenticationEntryPoint());
+            exceptionHandling.accessDeniedHandler(new CustomAccessDeniedHandler());
+        });
+
+        // formLogin() 인증이 필요한 요청은 스프링 시큐리티에서 사용하는 기본 Form Login Page 사용
         http.formLogin(config -> {
             config.loginPage("/api/member/login");
             config.successHandler(new APILoginSuccessHandler());
             config.failureHandler(new APILoginFailHandler());
         });
 
-        http.addFilterBefore(new JWTCheckFilter(),
-        UsernamePasswordAuthenticationFilter.class); // JWT체크
-        
-        http.exceptionHandling(config -> {
-            config.accessDeniedHandler(new CustomAccessDeniedHandler());
-        });
-        
         return http.build();
     }
 

@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
+import javax.print.attribute.standard.Media;
+
 import org.springframework.beans.propertyeditors.URLEditor;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.event.AuthenticationCredentialsNotFoundEvent;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -13,6 +16,8 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.zerock.mallapi.domain.ErrorCode;
+import org.zerock.mallapi.util.MemberException;
 
 import com.google.gson.Gson;
 
@@ -23,7 +28,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class APILoginFailHandler implements AuthenticationFailureHandler {
-
+// 인증이 실패했을 때 호출되는 AuthenticationFailurHandler 호출됨(ex: 비번 오류)
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException exception) throws IOException, ServletException {
@@ -40,38 +45,14 @@ public class APILoginFailHandler implements AuthenticationFailureHandler {
         // printWriter.println(jsonStr);
         // printWriter.close();
 
+        // 에러코드와 에러 메시지를 domain/ErrorCode 에서 관리하는 것으로 변경
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding("UTF-8");
 
-        String errorMessage = null;
-        //int errorCode = 0;
-
-        if(exception instanceof BadCredentialsException || exception instanceof InternalAuthenticationServiceException) {
-            errorMessage = "Username과 Password가 맞지 않습니다. 다시 확인해 주십시오.";
-        } 
-
-        if(exception instanceof DisabledException) {
-            errorMessage = "계정이 비활성화 되었습니다. 관리자에게 문의하세요.";
-        } 
-        
-        if(exception instanceof InternalAuthenticationServiceException) {
-            errorMessage = "내부적으로 발생한 시스템 문제로 인해 요청을 처리할 수 없습니다. 관리자에게 문의하세요.";
-        } 
-        
-        if(exception instanceof UsernameNotFoundException) {
-            errorMessage = "계정이 존재하지 않습니다. 회원가입 진행 후 로그인 해주세요.";
-        } 
-        
-        if(exception instanceof AuthenticationCredentialsNotFoundException) {
-            errorMessage = "인증 요청이 거부되었습니다. 관리자에게 문의하세요.";
-        }    
-        // } else {
-        //     errorMessage = "알 수 없는 이유로 로그인에 실패하였습니다. 관리자에게 문의하세요.";
-        // }
+        MemberException e = new MemberException(ErrorCode.AUTHENTICATION_FAILED);   
 
         Gson gson = new Gson();
-
-        String jsonStr = gson.toJson(Map.of("error", errorMessage));
- 
-        response.setContentType("application/json; charset=UTF-8");
+        String jsonStr = gson.toJson(Map.of("error", e.getErrorCode().getMsg()));
 
         PrintWriter printWriter = response.getWriter();
         printWriter.println(jsonStr);

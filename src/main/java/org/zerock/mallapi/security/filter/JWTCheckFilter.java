@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.zerock.mallapi.domain.ErrorCode;
 import org.zerock.mallapi.dto.MemberDTO;
 import org.zerock.mallapi.util.JWTUtil;
+import org.zerock.mallapi.util.MemberException;
 
 import com.google.gson.Gson;
 
@@ -42,9 +45,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
         // if(path.startsWith("/sample/")) {
         //     return true;
         // }
-        // if(path.startsWith("/api/products/view/")) {
-        //     return true;
-        // }
+
         if(path.startsWith("/uploadAjax/")) {
             return true;
         }
@@ -100,18 +101,25 @@ public class JWTCheckFilter extends OncePerRequestFilter {
 
             filterChain.doFilter(request, response);
 
-        } catch(Exception e) {
+        // JWTCheckFilter에서 JWT 토큰 검증이 실패한 경우 AuthenticationException 에러가 발생함
+        // 따라서 해당 에러 종류를 명시적으로 표시하기 위해 e의 타입을 AuthenticationException 으로 변경함    
+        } catch(AuthenticationException e) { 
 
             log.error("JWT Check Error.................");
             log.error(e.getMessage());
 
-            Gson gson = new Gson();
-            String msg = gson.toJson(Map.of("error", "ERROR_ACCESS_TOKEN"));
+            // CustomAuthenticationEntryPoint 에서 해당 에러를 처리하기 위해 주석처리 함
+            // Gson gson = new Gson();
+            // String msg = gson.toJson(Map.of("error", "ERROR_ACCESS_TOKEN"));
 
-            response.setContentType("application/json");
-            PrintWriter printWriter = response.getWriter();
-            printWriter.println(msg);
-            printWriter.close();
+            // response.setContentType("application/json");
+            // PrintWriter printWriter = response.getWriter();
+            // printWriter.println(msg);
+            // printWriter.close();
+
+            
+            // CustomAuthenticationEntryPoint 에서 해당 에러를 처리하도록 수정
+            throw e;
         }
     }
 }
