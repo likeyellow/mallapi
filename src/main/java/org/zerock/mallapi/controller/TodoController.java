@@ -9,13 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.zerock.mallapi.dto.PageRequestDTO;
 import org.zerock.mallapi.dto.PageResponseDTO;
 import org.zerock.mallapi.dto.TodoDTO;
+import org.zerock.mallapi.entity.UserIP;
+import org.zerock.mallapi.repository.UserIpRepository;
 import org.zerock.mallapi.service.TodoService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -28,6 +32,8 @@ public class TodoController {
     
     private final TodoService service;
     
+    private final UserIpRepository userIpRepository;
+
     @GetMapping("/{tno}")
     public TodoDTO get(@PathVariable(name = "tno") Long ton) {
         
@@ -74,4 +80,19 @@ public class TodoController {
 
         return Map.of("RESULT", "SUCCESS");
     }
+
+    @GetMapping("/")
+    public ResponseEntity<String> myApi(HttpServletRequest request) {
+        
+        String ipAddress = request.getRemoteAddr();
+
+        // IP 주소를 데이터베이스에 저장
+        UserIP userIP = new UserIP();
+        //userIP.setIpAddress(ipAddress);
+        userIpRepository.save(userIP);
+
+
+        return ResponseEntity.ok("API 호출이 완료되었습니다.");
+    }
+
 }
