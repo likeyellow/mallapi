@@ -25,7 +25,7 @@ public class APILoginSuccessHandler implements AuthenticationSuccessHandler {
             Authentication authentication) throws IOException, ServletException {
         
         log.info("------------------------------");
-        log.info("Authentication Error: {}", authentication);
+        log.info("Authentication : {}", authentication);
         log.info("----------------------------------");
 
         MemberDTO memberDTO = (MemberDTO)authentication.getPrincipal();

@@ -41,6 +41,11 @@ public class JWTCheckFilter extends OncePerRequestFilter {
             return true;
         }
 
+        // member/login 경로는 체크하지 않음
+        if(path.equals("/member/login")) {
+            return true;
+        }
+
         // 이미지 조회 경로를 체크하지 않는다면
         // if(path.startsWith("/sample/")) {
         //     return true;

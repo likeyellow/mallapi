@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.zerock.mallapi.domain.ErrorCode;
 import org.zerock.mallapi.util.MemberException;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 import jakarta.servlet.ServletException;
