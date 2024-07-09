@@ -36,16 +36,19 @@ public class CustomSecurityConfig {
 
         log.info("------------------------security config------------------------");
 
+        // CORS 설정
         http.cors(httpSecurityCorsConfigurer -> {
             httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource());
-            
         });
         
+        // 세션 관리 설정
         http.sessionManagement(sessionConfig -> sessionConfig.
             sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
+        // CSRF 설정 비활성화    
         http.csrf(config -> config.disable());
 
+        // JWT 필터 추가
         http.addFilterBefore(new JWTCheckFilter(),
         UsernamePasswordAuthenticationFilter.class); // JWT체크
 
@@ -71,7 +74,7 @@ public class CustomSecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
+    public CorsConfigurationSource corsConfigurationSource() { // CORS 설정에 필요한 메서드
         
         CorsConfiguration configuration = new CorsConfiguration();
 
