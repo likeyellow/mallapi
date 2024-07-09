@@ -46,7 +46,7 @@ public class GetIpFromHeader {
             }
         }
         
-        // ForwardedHeaderFilter가 적용되면, HttpServletRequest의 getRemoteAddr()를 사용해도 됨
+        // 헤더에서 IP를 찾지 못한 경우 원격 주소 반환
         String remoteAddr = request.getRemoteAddr();
         log.info("리모트 주소: " + remoteAddr);
         return remoteAddr;

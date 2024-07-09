@@ -52,10 +52,6 @@ public class CustomSecurityConfig {
         http.addFilterBefore(new JWTCheckFilter(),
         UsernamePasswordAuthenticationFilter.class); // JWT체크
 
-        // JWTCheckFilter 뒤에 RequestContextFilter 추가
-        // (이게 있어야 파라미터 없이 HttpServletRequest받아올 수 있음)
-        http.addFilterAfter(new RequestContextFilter(), JWTCheckFilter.class);
-
         // 인증되지 않은 사용자가 리소스에 접근했을 때 수행되는 핸들러를 등록
         http.exceptionHandling(exceptionHandling -> {
             exceptionHandling.authenticationEntryPoint(new CustomAuthenticationEntryPoint());
