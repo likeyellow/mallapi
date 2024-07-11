@@ -74,4 +74,16 @@ public class MemberController {
     public String getRegisterSuccess() {
         return "registerSuccessPage";
     }
+
+
+    // SSR 테스트용
+    @GetMapping("/hello")
+    public String hello(Model model) {
+
+        log.info("SSR테스트");
+        
+        model.addAttribute("message", "Hello, Spring Boot");
+        return "hello";
+    }
+
 }
