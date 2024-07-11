@@ -44,6 +44,7 @@ public class MemberDTO extends User {
         this.roleNames = roleNames;
     }
 
+
     public Map<String, Object> getClaims() {
 
         Map<String, Object> dataMap = new HashMap<>();

@@ -140,5 +140,11 @@ public class MemberServiceImpl implements MemberService {
 
         member1Repository.save(member);
     }
+
+    @Override
+    public boolean registerMember(MemberDTO memberDTO) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'registerMember'");
+    }
     
 }

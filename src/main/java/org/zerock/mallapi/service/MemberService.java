@@ -15,6 +15,8 @@ public interface MemberService {
 
     void modifyMember(MemberModifyDTO memberModifyDTO);
 
+    boolean registerMember(MemberDTO memberDTO);
+
     default MemberDTO entityToDTO(Member member) {
 
         MemberDTO dto = new MemberDTO(

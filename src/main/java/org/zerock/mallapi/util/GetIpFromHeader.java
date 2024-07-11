@@ -30,6 +30,12 @@ public class GetIpFromHeader {
         "REMOTE_ADDR"               // Java의 ServletRequest에서 제공하는 메서드로, 직접 연결된 클라이언트의 IP 주소를 반환
     );
 
+    /**
+     * HTTP 요청의 헤더에서 실제 클라이언트 IP 주소를 추출합니다.
+     * 다수의 프록시를 거친 경우 마지막 클라이언트 IP를 반환합니다.
+     *
+     * @return 클라이언트의 실제 IP 주소
+     */
     public String getIpFromHeader() {
         log.info("클라이언트 IP 수집");
 
@@ -37,6 +43,7 @@ public class GetIpFromHeader {
         HttpServletRequest request = sra.getRequest();
         log.info("리퀘스트: " + request);
 
+        // IP_HEADERS 목록에서 클라이언트 IP 확인
         for (String ipHeader : IP_HEADERS) {
             String clientIp = request.getHeader(ipHeader);
             log.info("헤더 {}: {}", ipHeader, clientIp);
@@ -46,7 +53,7 @@ public class GetIpFromHeader {
             }
         }
         
-        // 헤더에서 IP를 찾지 못한 경우 원격 주소 반환
+        // 모든 헤더에서 IP를 찾지 못한 경우, 기본적으로 제공되는 원격 주소 반환
         String remoteAddr = request.getRemoteAddr();
         log.info("리모트 주소: " + remoteAddr);
         return remoteAddr;
