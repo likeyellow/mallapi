@@ -40,7 +40,10 @@ public class MemberController {
         // 로그인 페이지에 접근한 사용자의 IP주소를 DB에 저장
         UserIPDTO userIPDTO = new UserIPDTO();
         userIPDTO.setIpAddress(clientIp);
-        userIPDTO.setAccessTime(LocalDateTime.now());
+
+        // 사용자의 접속시간을 DB에 저장
+        LocalDateTime now = LocalDateTime.now().withNano(0); // LocalDateTime 객체를 초 단위까지만 설정
+        userIPDTO.setAccessTime(now);
 
         userIPService.ipRegister(userIPDTO); 
 
