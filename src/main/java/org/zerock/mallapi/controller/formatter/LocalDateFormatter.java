@@ -6,7 +6,7 @@ import java.util.Locale;
 
 import org.springframework.format.Formatter;
 
-public class LocalDateFormatter implements Formatter<LocalDate>{
+public class LocalDateFormatter implements Formatter<LocalDate> {
     
     @Override
     public LocalDate parse(String text, Locale locale) {

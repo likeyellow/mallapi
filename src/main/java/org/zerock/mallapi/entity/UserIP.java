@@ -1,5 +1,6 @@
 package org.zerock.mallapi.entity;
 
+import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +27,8 @@ public class UserIP {
     private Long id;
 
     private String ipAddress;
+
+    private LocalDateTime accessTime;
 }
 /*
  * Hibernate: 

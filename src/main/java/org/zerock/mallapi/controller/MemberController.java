@@ -1,5 +1,6 @@
 package org.zerock.mallapi.controller;
 
+import java.time.LocalDateTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +40,7 @@ public class MemberController {
         // 로그인 페이지에 접근한 사용자의 IP주소를 DB에 저장
         UserIPDTO userIPDTO = new UserIPDTO();
         userIPDTO.setIpAddress(clientIp);
+        userIPDTO.setAccessTime(LocalDateTime.now());
 
         userIPService.ipRegister(userIPDTO); 
 
@@ -81,9 +83,9 @@ public class MemberController {
     public String hello(Model model) {
 
         log.info("SSR테스트");
-        
+
         model.addAttribute("message", "Hello, Spring Boot");
-        return "hello";
+        return "HelloPage";
     }
 
 }
