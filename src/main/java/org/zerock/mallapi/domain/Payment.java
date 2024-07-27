@@ -31,6 +31,10 @@ public class Payment {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @ManyToOne(fetch = FetchType.LAZY) // Cart와의 관계 추가
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
     private String tid; // 카카오페이에서 발급된 거래 ID
     private Long orderId; // 주문 ID
     //private Long memberId; // 회원 ID

@@ -54,6 +54,17 @@ dependencies {
 	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
 	//compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.12'
+
+	// https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+	implementation 'org.apache.kafka:kafka-clients:3.7.0'
+
+	// https://mvnrepository.com/artifact/org.apache.kafka/kafka
+	implementation 'org.apache.kafka:kafka_2.13:3.7.1'
+
+	// https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
+	implementation 'org.springframework.kafka:spring-kafka:3.2.2'
+
+
 }
 
 test {

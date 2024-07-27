@@ -45,7 +45,9 @@ public class JWTCheckFilter extends OncePerRequestFilter {
         if(path.equals("/member/login")) {
             return true;
         }
-
+        if(path.equals("/api/products2")) {
+            return true;
+        }
         // 이미지 조회 경로를 체크하지 않는다면
         // if(path.startsWith("/sample/")) {
         //     return true;
@@ -66,6 +68,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
         if(path.startsWith("/api/products/view/")) {
             return true;
         }
+
         return false;
     }
 
