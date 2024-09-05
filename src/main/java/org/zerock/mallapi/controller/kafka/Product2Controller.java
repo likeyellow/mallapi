@@ -25,7 +25,7 @@ public class Product2Controller {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createProduct(@RequestBody CreateProductRestModal product) {
+    public ResponseEntity<Object> createProduct(@RequestBody CreateProductRestModel product) {
 
         String productId;
         try {

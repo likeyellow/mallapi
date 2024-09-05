@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateProductRestModal {
+public class CreateProductRestModel {
 
     private String title;
     private BigDecimal price;

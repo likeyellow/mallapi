@@ -42,4 +42,8 @@ public class Payment {
     private int quantity; // 수량
     private int totalAmount; // 총 결제 금액
     private String status; // 결제 상태(PENDING, COMPLETED, CANCELLED 등)
+    private int tax_free; // 비과세 금액
+    private int vat; // 부과세 금액
+    private int point; // 사용한 포인트
+    private int discount; // 할인 금액
 }
